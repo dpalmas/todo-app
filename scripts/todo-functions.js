@@ -43,7 +43,6 @@ const renderTodos = (todos, filters) => {
         
         return searchTextMatch && hideCompletedMatch
     })
-
     const incompleteTodos = filteredTodos.filter((todo) => !todo.completed)
 
     todoEl.innerHTML = ''
@@ -51,13 +50,13 @@ const renderTodos = (todos, filters) => {
 
     if (filteredTodos.length > 0) {
         filteredTodos.forEach((todo) => {
-          todoEl.appendChild(generateTodoDOM(todo))
-      })
+            todoEl.appendChild(generateTodoDOM(todo))
+        })
     } else {
-      const messageEl = document.createElement('p')
-      messageEl.classList.add('empty-message')
-      messageEl.textContent = 'No to-dos to show'
-      todoEl.appendChild(messageEl)
+        const messageEl = document.createElement('p')
+        messageEl.classList.add('empty-message')
+        messageEl.textContent = 'There are no to-dos to show'
+        todoEl.appendChild(messageEl)
     }
 }
 
@@ -96,7 +95,7 @@ const generateTodoDOM = (todo) => {
         removeTodo(todo.id)
         saveTodos(todos)
         renderTodos(todos, filters)
-    })
+    }) 
 
     return todoEl
 }
