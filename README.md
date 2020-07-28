@@ -34,7 +34,7 @@ This project was developed with the following technologies:
 This is a **ToDo App** to add or create a list of all your tasks.
 
 <p align="center">
-  <img alt="BeTheHero" src="/images/todo-app.png" width="100%">
+  <img alt="Simple ToDo App" src="/images/todo-app.png" width="100%">
 </p>
 
 ## :computer: Instalation
