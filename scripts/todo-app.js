@@ -1,53 +1,35 @@
-import uuidv4 from 'uuid/v4'
+'use strict'
 
-let todos = []
+let todos = getSavedTodos()
 
-// Fetch existing todos from localStorage
-const loadTodos = () => {
-    const todosJSON = localStorage.getItem('todos')
-
-    try {
-        todos = todosJSON ? JSON.parse(todosJSON) : []
-    } catch (e) {
-        todos = []
-    }
+const filters = {
+    searchText: '',
+    hideCompleted: false
 }
 
-// Save todos to localStorage
-const saveTodos = () => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-}
+renderTodos(todos, filters)
 
-const getTodos = () => todos
+document.querySelector('#search-text').addEventListener('input', (e) => {
+    filters.searchText = e.target.value
+    renderTodos(todos, filters)
+})
 
-const createTodo = (text) => {
-    todos.push({
+document.querySelector('#new-todo').addEventListener('submit', (e) => {
+    const text = e.target.elements.text.value.trim()
+    e.preventDefault()
+    if (text.length > 0) {
+      todos.push({
         id: uuidv4(),
-        text,
+        text: text,
         completed: false
     })
-    saveTodos()
-}
-
-const removeTodo = (id) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === id)
-
-    if (todoIndex > -1) {
-        todos.splice(todoIndex, 1)
-        saveTodos()
+    saveTodos(todos)
+    renderTodos(todos, filters)
+    e.target.elements.text.value = ''
     }
-}
+})
 
-// Toggle the completed value for a given todo
-const toggleTodo = (id) => {
-    const todo = todos.find((todo) => todo.id === id)
-
-    if (todo) {
-        todo.completed = !todo.completed
-        saveTodos()
-    }
-}
-
-loadTodos()
-
-export { loadTodos, getTodos, createTodo, removeTodo, toggleTodo }
+document.querySelector('#hide-completed').addEventListener('change', (e) => {
+    filters.hideCompleted = e.target.checked
+    renderTodos(todos, filters)
+})
