@@ -8,7 +8,7 @@
 
   <img alt="License" src="https://img.shields.io/github/license/dpalmas/todo-app?color=0000FF&logo=MIT">
   
-  <a href="https://github.com/davipalmas/omnistack11/commits/master">
+  <a href="https://github.com/dpalmas/notes-app/commits/master">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/dpalmas/todo-app?color=0000FF">
   </a>
 </p>
@@ -31,7 +31,7 @@ This project was developed with the following technologies:
 
 ## :thinking: About this Project
 
-This is a **ToDo App** to add or create a list of all your tasks.
+ **ToDo App** it's a simple todo web application to create, read, update and delete tasks.
 
 <p align="center">
   <img alt="Simple ToDo App" src="/images/todo-app.png" width="100%">
@@ -48,4 +48,4 @@ cd todo-app
 ```
 
 ## :memo: License
-This project is licensed under the license [MIT](./LICENSE) &copy;.
+This project is licensed under the license [MIT](./LICENSE)
